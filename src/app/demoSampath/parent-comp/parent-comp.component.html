@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="heading">My fruits</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Fruit Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fruit of fruits let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{fruit}}</td>
+                    </tr>
+                    <tr style="text-align: center;" *ngIf="isDataNull">No data to show please add some fruits
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" (click)="loadChild()">Manage Fruits</button>
+        </div>
+    </div>
+</div>

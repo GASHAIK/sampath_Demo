@@ -1,0 +1,78 @@
+<div class="row cardpadd mx-0">
+    <div class="col-md-12">
+        <div class="card-primary">
+            <div class="container">
+                <div class="container card card-outline card-info" style="padding-top: 15px;">
+                    <div class="container">
+                        <div class="card leftcard">
+                            <form [formGroup]="Form">
+                                <div class="card-body">
+                                    <h2 style="text-align: center;">Add Fruits</h2>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Enter the fruit name :</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="Name" formControlName="fruitName" class="form-control"
+                                                placeholder="Fruit Name">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button class="btn btn-primary" [disabled]="btnName"
+                                                (click)="Add()">Add</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary" [disabled]="!btnName"
+                                                (click)="saveEdit()">Save
+                                                Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <br>
+                        <form [formGroup]="Form">
+                            <div class="card leftcard">
+                                <h2 style="text-align: center;">Edit Fruits</h2>
+                                <h1 class="heading">My fruits list</h1>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Fruit Name</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let fruit of fruits let i = index">
+                                                <td>{{i+1}}</td>
+                                                <td>{{fruit}}</td>
+                                                <td>
+                                                    <button mat-icon-button (click)="Edit(i,fruit)">
+                                                        <mat-icon>launch</mat-icon>
+                                                    </button>
+                                                    <button mat-icon-button color="warn" (click)="Delete(i)">
+                                                        <mat-icon>delete_outline</mat-icon>
+                                                    </button>
+                                                </td>
+                                                
+
+                                            </tr>
+                                            <tr style="text-align: center;" *ngIf="isDataNull">No data to show please add some fruits
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <br>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
